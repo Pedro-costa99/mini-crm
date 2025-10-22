@@ -72,12 +72,6 @@ src/
 └─ test/                # setup Vitest + MSW
 ```
 
-## Design System
-- Tokens de cor em HSL com tema claro, gradientes suaves e badges com alto contraste.
-- Componentes baseados em shadcn/ui (Button, Select, Label, Slider, etc.) usando Radix.
-- Utilitario `cn()` (clsx + tailwind-merge) evita conflitos de classe.
-- Paginacao customizada com Radix Dropdown e alinhamento responsivo.
-
 ## APIs e dados
 - **BrasilAPI**
   - `/cnpj/v1/{cnpj}` para enriquecer dados corporativos.
@@ -87,20 +81,6 @@ src/
   - Persistido via `localStorage` com dataset inicial mockado.
   - CRUD (list, find, create, update, reset) em `lead-repository.ts`.
 
-## Testes
-- Vitest + Testing Library configurados em `src/test/setup.ts`.
-- MSW pronto para handlers customizados.
-- Cenarios sugeridos:
-  - Login (sucesso/erro) com React Hook Form.
-  - Enriquecimento por CNPJ/CEP com mocks MSW.
-  - Hooks de leads garantindo invalidacao de cache no TanStack Query.
 
-## Roadmap sugerido
-1. Criar tela `/leads/:leadId/edit` reaproveitando o formulario.
-2. Adicionar historico de atividades e timeline por lead.
-3. Incluir novos graficos (pizza por etapa, receita prevista).
-4. Implementar toggle light/dark com os mesmos tokens.
-5. Cobrir fluxo end-to-end com Playwright ou Cypress.
-6. Configurar pipeline de deploy (Vercel, Netlify ou GitHub Pages).
 
 ---
