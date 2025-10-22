@@ -12,34 +12,32 @@ const emptyToUndefined = z
 export const leadFormSchema = z
   .object({
     cnpj: z
-      .string({
-        required_error: 'Informe o CNPJ.',
-      })
-      .min(14, 'CNPJ precisa ter 14 dígitos.')
+      .string()
+      .trim()
+      .min(1, 'Informe o CNPJ.')
       .transform((value) => value.replace(/\D/g, ''))
-      .refine((value) => value.length === 14, 'CNPJ inválido.'),
+      .refine((value) => value.length === 14, 'CNPJ invalido.'),
     cep: emptyToUndefined
       .optional()
       .transform((value) => value?.replace(/\D/g, ''))
       .pipe(
         z
           .string()
-          .length(8, 'CEP deve ter 8 dígitos.')
+          .length(8, 'CEP deve ter 8 digitos.')
           .optional()
           .or(z.literal(undefined)),
       ),
     legalName: z
-      .string({
-        required_error: 'Informe a razão social.',
-      })
+      .string()
       .trim()
-      .min(2, 'Razão social muito curta.'),
+      .min(1, 'Informe a razao social.')
+      .min(2, 'Razao social muito curta.'),
     tradeName: emptyToUndefined.optional(),
     cnaeCode: emptyToUndefined.optional(),
     cnaeDescription: emptyToUndefined.optional(),
     email: emptyToUndefined
       .optional()
-      .pipe(z.string().email('E-mail inválido.').optional().or(z.literal(undefined))),
+      .pipe(z.string().email('E-mail invalido.').optional().or(z.literal(undefined))),
     phone: emptyToUndefined.optional(),
     street: emptyToUndefined.optional(),
     number: emptyToUndefined.optional(),
@@ -56,12 +54,7 @@ export const leadFormSchema = z
           .optional()
           .or(z.literal(undefined)),
       ),
-    score: z
-      .number({
-        required_error: 'Pontuação é obrigatória.',
-      })
-      .min(0)
-      .max(100),
+    score: z.number().min(0, 'Pontuacao minima 0').max(100, 'Pontuacao maxima 100'),
     stage: leadStageEnum,
     notes: emptyToUndefined.optional(),
     bankCode: emptyToUndefined.optional(),
@@ -73,7 +66,7 @@ export const leadFormSchema = z
     },
     {
       path: ['email'],
-      message: 'Informe um e-mail válido.',
+      message: 'Informe um e-mail valido.',
     },
   )
 

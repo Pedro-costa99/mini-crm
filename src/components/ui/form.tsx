@@ -6,14 +6,16 @@ import {
   type ControllerProps,
   type FieldPath,
   type FieldValues,
+  type FormProviderProps,
 } from 'react-hook-form'
 
 import { Label } from '@/components/ui/label'
 import { cn } from '@/lib/utils'
 
-type FormProps = React.ComponentProps<typeof FormProvider>
-
-export function Form({ ...props }: FormProps) {
+export function Form<
+  TFieldValues extends FieldValues = FieldValues,
+  TContext = unknown,
+>({ ...props }: FormProviderProps<TFieldValues, TContext>) {
   return <FormProvider {...props} />
 }
 

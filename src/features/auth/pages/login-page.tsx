@@ -6,7 +6,7 @@ import { useAuth } from '@/features/auth/auth-provider'
 
 export function LoginPage() {
   const navigate = useNavigate()
-  const search = useSearch({ from: '/login' })
+  const search = useSearch({ from: '/login/' })
   const { isAuthenticated, isLoading } = useAuth()
 
   useEffect(() => {

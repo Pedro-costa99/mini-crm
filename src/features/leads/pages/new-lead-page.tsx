@@ -249,21 +249,21 @@ export function NewLeadPage() {
                     type="button"
                     variant="outline"
                     className="justify-center gap-2"
-                    disabled={enrichCnpjMutation.isLoading || form.watch('cnpj').length === 0}
+                    disabled={enrichCnpjMutation.isPending || form.watch('cnpj').length === 0}
                     onClick={() => enrichCnpjMutation.mutate(form.getValues('cnpj'))}
                   >
                     <Download className="h-4 w-4" />
-                    {enrichCnpjMutation.isLoading ? 'Buscando CNPJ...' : 'Enriquecer por CNPJ'}
+                    {enrichCnpjMutation.isPending ? 'Buscando CNPJ...' : 'Enriquecer por CNPJ'}
                   </Button>
                   <Button
                     type="button"
                     variant="outline"
                     className="justify-center gap-2"
-                    disabled={enrichCepMutation.isLoading || form.watch('cep')?.length === 0}
+                    disabled={enrichCepMutation.isPending || form.watch('cep')?.length === 0}
                     onClick={() => enrichCepMutation.mutate(form.getValues('cep') ?? '')}
                   >
                     <MapPin className="h-4 w-4" />
-                    {enrichCepMutation.isLoading ? 'Buscando CEP...' : 'Autofill por CEP'}
+                    {enrichCepMutation.isPending ? 'Buscando CEP...' : 'Autofill por CEP'}
                   </Button>
                 </div>
               </div>

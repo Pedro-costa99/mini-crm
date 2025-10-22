@@ -1,4 +1,3 @@
-import * as React from 'react'
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu'
 import { ChevronLeft, ChevronRight, MoreHorizontal } from 'lucide-react'
 
