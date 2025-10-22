@@ -31,6 +31,10 @@ Aplicacao SPA em React 19 que simula um funil de prospeccao B2B consumindo a [Br
 
 > Autenticacao e dados sao inteiramente mockados e ficam somente no navegador.
 
+## Demo
+
+![Demo do Mini CRM](public/demo.gif)
+
 ## Como rodar
 ```bash
 # instalar dependencias
